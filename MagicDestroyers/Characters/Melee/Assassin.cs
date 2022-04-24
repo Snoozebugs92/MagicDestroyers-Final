@@ -16,32 +16,6 @@ namespace MagicDestroyers.Characters.Melee
         private readonly LightLeatherVest DEFAULT_BODY_ARMOR = new LightLeatherVest();
         private readonly Sword DEFAULT_WEAPON = new Sword();
         
-        private LightLeatherVest bodyArmor;
-        private Sword weapon;
-
-        public LightLeatherVest BodyArmor
-        {
-            get
-            {
-                return this.bodyArmor;
-            }
-            set
-            {
-                this.bodyArmor = value;
-            }
-        }
-        public Sword Weapon
-        {
-            get
-            {
-                return this.weapon;
-            }
-            set
-            {
-                this.weapon = value;
-            }
-        }
-
         public Assassin()
             : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
@@ -54,13 +28,13 @@ namespace MagicDestroyers.Characters.Melee
 
         public Assassin(string name, int level, int healthPoints)
         {
-            this.Name = name;
-            this.Level = level;
-            this.HealthPoints = healthPoints;
-            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
-            this.Faction = DEFAULT_FACTION;
-            this.BodyArmor = DEFAULT_BODY_ARMOR;
-            this.Weapon = DEFAULT_WEAPON;
+            base.Name = name;
+            base.Level = level;
+            base.HealthPoints = healthPoints;
+            base.AbilityPoints = DEFAULT_ABILITY_POINTS;
+            base.Faction = DEFAULT_FACTION;
+            base.BodyArmor = DEFAULT_BODY_ARMOR;
+            base.Weapon = DEFAULT_WEAPON;
         }
 
         public void Raze()

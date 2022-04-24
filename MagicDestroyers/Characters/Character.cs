@@ -1,5 +1,7 @@
 ﻿using MagicDestroyers.Characters.Interfaces;
 using MagicDestroyers.Enums;
+using MagicDestroyers.Equipment.Armors;
+using MagicDestroyers.Equipment.Weapons;
 using System;
 
 namespace MagicDestroyers.Characters
@@ -10,8 +12,9 @@ namespace MagicDestroyers.Characters
 
         private int healthPoints;
         private int level;
-
         private string name;
+        private Armor bodyArmor;
+        private Weapon weapon;
 
         public Faction Faction
         {
@@ -24,7 +27,6 @@ namespace MagicDestroyers.Characters
                 this.faction = value;
             }
         }
-
         public int HealthPoints
         {
             get
@@ -61,7 +63,6 @@ namespace MagicDestroyers.Characters
                 }
             }
         }
-
         public string Name
         {
             get
@@ -79,6 +80,33 @@ namespace MagicDestroyers.Characters
                     throw new ArgumentException(string.Empty, "Inappropriate length of name, name should be between 3 and 12 characters.");
                 }
             }
+        }
+        public Armor BodyArmor
+        {
+            get
+            {
+                return this.bodyArmor;
+            }
+            set
+            {
+                this.bodyArmor = value;
+            }
+        }
+        public Weapon Weapon
+        {
+            get
+            {
+                return this.weapon;
+            }
+            set
+            {
+                this.weapon = value;
+            }
+        }
+
+        public void Greetings(string name)
+        {
+            Console.WriteLine($@"{this.name} greets {name}!");
         }
 
         public abstract void Attack();

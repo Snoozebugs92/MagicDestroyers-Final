@@ -14,33 +14,7 @@ namespace MagicDestroyers.Characters.Melee
         private const string DEFAULT_NAME = "Bob";
 
         private readonly Chainlink DEFAULT_BODY_ARMOR = new Chainlink();
-        private readonly Axe DEFAULT_WEAPON = new Axe();
-
-        private Chainlink bodyArmor;
-        private Axe weapon;
-        
-        public Chainlink BodyArmor
-        {
-            get
-            {
-                return this.bodyArmor;
-            }
-            set
-            {
-                this.bodyArmor = value;
-            }
-        }
-        public Axe Weapon
-        {
-            get
-            {
-                return this.weapon;
-            }
-            set
-            {
-                this.weapon = value;
-            }
-        }
+        private readonly Axe DEFAULT_WEAPON = new Axe();     
 
         public Warrior()
             : this(DEFAULT_NAME, DEFAULT_LEVEL)
@@ -54,13 +28,13 @@ namespace MagicDestroyers.Characters.Melee
 
         public Warrior(string name, int level, int healthPoints)
         {
-            this.Name = name;
-            this.Level = level;
-            this.HealthPoints = healthPoints;
-            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
-            this.Faction = DEFAULT_FACTION;
-            this.BodyArmor = DEFAULT_BODY_ARMOR;
-            this.Weapon = DEFAULT_WEAPON;
+            base.Name = name;
+            base.Level = level;
+            base.HealthPoints = healthPoints;
+            base.AbilityPoints = DEFAULT_ABILITY_POINTS;
+            base.Faction = DEFAULT_FACTION;
+            base.BodyArmor = DEFAULT_BODY_ARMOR;
+            base.Weapon = DEFAULT_WEAPON;
         }
 
         public void Strike()
@@ -80,17 +54,17 @@ namespace MagicDestroyers.Characters.Melee
 
         public override void Attack()
         {
-            throw new NotImplementedException();
+            this.Strike();
         }
 
         public override void SpecialAttack()
         {
-            throw new NotImplementedException();
+            this.Execute();
         }
 
         public override void Defend()
         {
-            throw new NotImplementedException();
+            this.SkinHarden();
         }
     }
 }

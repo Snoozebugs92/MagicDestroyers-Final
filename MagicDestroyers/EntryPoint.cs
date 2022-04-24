@@ -10,34 +10,30 @@ namespace MagicDestroyers
     {
         static void Main()
         {
-            Warrior warriorOne = new Warrior();
-            Mage mageOne = new Mage();
-
-            Character secondWarrior = new Warrior();
-
-            List<Character> theCharacters = new List<Character>();
-
-            theCharacters.Add(warriorOne);
-            theCharacters.Add(mageOne);
-
-            for (int i = 0; i < theCharacters.Count; i++)
+            List<Character> characters = new List<Character>()
             {
-                Console.WriteLine(theCharacters[i]);
+                new Warrior(),
+                new Warrior(),
+                new Warrior(),
+                new Mage(),
+                new Mage(),
+                new Mage()
+            };
+
+            List<Melee> meleeTeam = new List<Melee>();
+            List<Spellcaster> spellcasterTeam = new List<Spellcaster>();
+
+            foreach (var character in characters)
+            {
+                if (character is Melee)
+                {
+                    meleeTeam.Add((Melee)character);
+                }
+                else if (character is Spellcaster)
+                {
+                    spellcasterTeam.Add((Spellcaster)character);
+                }
             }
-
-            Console.WriteLine();
-
-            Console.WriteLine($"Warriors name is {warriorOne.Name}.");
-            Console.WriteLine($"{warriorOne.Name}'s level is: {warriorOne.Level}");
-            Console.WriteLine($"{warriorOne.Name}'s healthpoints are: {warriorOne.HealthPoints}");
-            Console.WriteLine($"{warriorOne.Name}'s faction is: {warriorOne.Faction}");
-
-            Console.WriteLine();
-
-            Console.WriteLine($"Mage's name is {mageOne.Name}.");
-            Console.WriteLine($"{mageOne.Name}'s level is: {mageOne.Level}");
-            Console.WriteLine($"{mageOne.Name}'s healthpoints are: {mageOne.HealthPoints}");
-            Console.WriteLine($"{mageOne.Name}'s faction is: {mageOne.Faction}");
         }
     }
 }

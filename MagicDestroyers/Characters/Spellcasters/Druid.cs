@@ -15,32 +15,6 @@ namespace MagicDestroyers.Characters.Spellcasters
 
         private readonly LightLeatherVest DEFAULT_BODY_ARMOR = new LightLeatherVest();
         private readonly Staff DEFAULT_WEAPON = new Staff();
-        
-        private LightLeatherVest bodyArmor;
-        private Staff weapon;
-
-        public LightLeatherVest BodyArmor
-        {
-            get
-            {
-                return bodyArmor;
-            }
-            set
-            {
-                bodyArmor = value;
-            }
-        }
-        public Staff Weapon
-        {
-            get
-            {
-                return weapon;
-            }
-            set
-            {
-                weapon = value;
-            }
-        }
 
         public Druid()
             : this(DEFAULT_NAME, DEFAULT_LEVEL)
@@ -54,13 +28,13 @@ namespace MagicDestroyers.Characters.Spellcasters
 
         public Druid(string name, int level, int healthPoints)
         {
-            this.Name = name;
-            this.Level = level;
-            this.HealthPoints = healthPoints;
-            this.ManaPoints = DEFAULT_MANA_POINTS;
-            this.Faction = DEFAULT_FACTION;
-            this.BodyArmor = DEFAULT_BODY_ARMOR;
-            this.Weapon = DEFAULT_WEAPON;
+            base.Name = name;
+            base.Level = level;
+            base.HealthPoints = healthPoints;
+            base.ManaPoints = DEFAULT_MANA_POINTS;
+            base.Faction = DEFAULT_FACTION;
+            base.BodyArmor = DEFAULT_BODY_ARMOR;
+            base.Weapon = DEFAULT_WEAPON;
         }
 
         public void Moonfire()

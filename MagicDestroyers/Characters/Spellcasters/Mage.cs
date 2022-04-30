@@ -37,34 +37,34 @@ namespace MagicDestroyers.Characters.Spellcasters
             base.Weapon = DEFAULT_WEAPON;
         }
 
-        public void Fireball()
+        public int Fireball()
         {
             throw new NotImplementedException();
         }
 
-        public void ArcaneWrath()
+        public int ArcaneWrath()
         {
             throw new NotImplementedException();
         }
 
-        public void Meditation()
+        public int Meditation()
         {
             throw new NotImplementedException();
         }
 
-        public override void Attack()
+        public override int Attack()
         {
-            throw new NotImplementedException();
+            return this.Fireball();
         }
 
-        public override void SpecialAttack()
+        public override int SpecialAttack()
         {
-            throw new NotImplementedException();
+            return this.ArcaneWrath();
         }
 
-        public override void Defend()
+        public override int Defend()
         {
-            throw new NotImplementedException();
+            return this.Meditation();
         }
     }
 }

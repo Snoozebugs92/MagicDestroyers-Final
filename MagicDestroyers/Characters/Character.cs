@@ -10,9 +10,13 @@ namespace MagicDestroyers.Characters
     {
         private Faction faction;
 
+        private bool isAlive;
         private int healthPoints;
+        private int scores;
+
         private int level;
         private string name;
+
         private Armor bodyArmor;
         private Weapon weapon;
 
@@ -25,6 +29,17 @@ namespace MagicDestroyers.Characters
             set
             {
                 this.faction = value;
+            }
+        }
+        public bool IsAlive
+        {
+            get
+            {
+                return this.isAlive;
+            }
+            private set
+            {
+                this.isAlive = value;
             }
         }
         public int HealthPoints
@@ -43,6 +58,17 @@ namespace MagicDestroyers.Characters
                 {
                     throw new ArgumentOutOfRangeException(string.Empty, "Inappropriate value, the value should be >= 0 and <= 100.");
                 }
+            }
+        }
+        public int Scores
+        {
+            get
+            {
+                return this.scores;
+            }
+            private set
+            {
+                this.scores = value;
             }
         }
         public int Level
@@ -109,10 +135,36 @@ namespace MagicDestroyers.Characters
             Console.WriteLine($@"{this.name} greets {name}!");
         }
 
-        public abstract void Attack();
+        public abstract int Attack();
 
-        public abstract void SpecialAttack();
+        public abstract int SpecialAttack();
 
-        public abstract void Defend();
+        public abstract int Defend();
+
+        public void TakeDamage(int damage, string attackerName)
+        {
+            if (this.Defend() < damage)
+            {
+                this.healthPoints = this.healthPoints - damage + this.Defend();
+
+                if (this.healthPoints <= 0)
+                {
+                    this.isAlive = false;
+                }
+            }
+            else
+            {
+                Console.WriteLine("You cannot harm me!");
+            }
+
+            if (!this.isAlive)
+            {
+                Console.WriteLine($"{this.name} received {damage} damage from {attackerName}, and is now dead.");
+            }
+            else
+            {
+                Console.WriteLine($"{this.name} received {damage} damage from {attackerName}, {this.name} has {this.healthPoints} healtpoints remaining.");
+            }
+        }
     }
 }

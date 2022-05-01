@@ -7,49 +7,45 @@ namespace MagicDestroyers.Characters.Spellcasters
 {
     public class Mage : Spellcaster
     {
-        private const Faction DEFAULT_FACTION = Faction.Spellcaster;
-        private const int DEFAULT_LEVEL = 1;
-        private const int DEFAULT_HEALTH_POINTS = 120;
-        private const int DEFAULT_MANA_POINTS = 100;
-        private const string DEFAULT_NAME = "Merlin";
-
         private readonly ClothRobe DEFAULT_BODY_ARMOR = new ClothRobe();
         private readonly Staff DEFAULT_WEAPON = new Staff();
 
         public Mage()
-            : this(DEFAULT_NAME, DEFAULT_LEVEL)
+            : this(Constants.Mage.NAME, 1)
         {
         }
 
         public Mage(string name, int level)
-            : this(name, level, DEFAULT_HEALTH_POINTS)
+            : this(name, level, Constants.Mage.HEALTH_POINTS)
         {
         }
 
         public Mage(string name, int level, int healthPoints)
         {
+            base.ManaPoints = Constants.Mage.MANA_POINTS;
+            base.BodyArmor = DEFAULT_BODY_ARMOR;
+            base.Weapon = DEFAULT_WEAPON;
             base.Name = name;
             base.Level = level;
             base.HealthPoints = healthPoints;
-            base.ManaPoints = DEFAULT_MANA_POINTS;
-            base.Faction = DEFAULT_FACTION;
-            base.BodyArmor = DEFAULT_BODY_ARMOR;
-            base.Weapon = DEFAULT_WEAPON;
+            base.Faction = Faction.Spellcaster;
+            base.IsAlive = true;
+            base.Scores = 0;
         }
 
         public int Fireball()
         {
-            throw new NotImplementedException();
+            return base.Weapon.DamagePoints + 10;
         }
 
         public int ArcaneWrath()
         {
-            throw new NotImplementedException();
+            return base.Weapon.DamagePoints + 12;
         }
 
         public int Meditation()
         {
-            throw new NotImplementedException();
+            return base.BodyArmor.ArmorPoints + 5;
         }
 
         public override int Attack()

@@ -55,6 +55,7 @@
     <Compile Include="Characters\Spellcasters\Mage.cs" />
     <Compile Include="Characters\Spellcasters\Necromancer.cs" />
     <Compile Include="Characters\Spellcasters\Spellcaster.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Enumerations\Faction.cs" />
     <Compile Include="Equipment\Armors\Armor.cs" />

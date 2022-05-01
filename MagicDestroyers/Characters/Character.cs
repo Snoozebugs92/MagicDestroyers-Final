@@ -37,7 +37,7 @@ namespace MagicDestroyers.Characters
             {
                 return this.isAlive;
             }
-            private set
+            protected set
             {
                 this.isAlive = value;
             }
@@ -66,7 +66,7 @@ namespace MagicDestroyers.Characters
             {
                 return this.scores;
             }
-            private set
+            protected set
             {
                 this.scores = value;
             }
@@ -164,6 +164,16 @@ namespace MagicDestroyers.Characters
             else
             {
                 Console.WriteLine($"{this.name} received {damage} damage from {attackerName}, {this.name} has {this.healthPoints} healtpoints remaining.");
+            }
+        }
+
+        public void WonBattle()
+        {
+            this.Scores++;
+
+            if (this.scores % 10 == 0)
+            {
+                this.level++;
             }
         }
     }

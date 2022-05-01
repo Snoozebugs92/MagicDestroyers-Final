@@ -12,8 +12,8 @@ namespace MagicDestroyers
         {
             Random rng = new Random();
 
-            int currentMelee = 0;
-            int currentSpellcaster = 0;
+            Melee currentMelee;
+            Spellcaster currentSpellcaster;
 
             bool gameOver = false;
 
@@ -45,55 +45,48 @@ namespace MagicDestroyers
                 // Approach 2, Make method called TakeDamage. spellCasterTeam[0].TakeDamage(meleeTeam[0]);
                 // Approach 3, Use the TakeDamage method but give a int damage input parameter.
 
+
             while (!gameOver)
             {
                 // (Random)Character Selection 
-                currentMelee = rng.Next(0, meleeTeam.Count);
-                currentSpellcaster = rng.Next(0, spellcasterTeam.Count);               
+                currentMelee = meleeTeam[rng.Next(0, meleeTeam.Count)];
+                currentSpellcaster = spellcasterTeam[rng.Next(0, spellcasterTeam.Count)];               
 
-                // Melee attacks Spellcaster.
-                meleeTeam[currentSpellcaster].TakeDamage(spellcasterTeam[currentSpellcaster].Attack(), spellcasterTeam[currentSpellcaster].Name);
-                // 3.1 Check character status and remove from team if needed.
-                // 3.2 If dead choose another character from the team.
-                if (!meleeTeam[currentMelee].IsAlive)
+               
+                currentSpellcaster.TakeDamage(currentMelee.Attack(), currentMelee.Name, currentMelee.GetType().ToString());
+                if (!currentSpellcaster.IsAlive)
                 {
-                    meleeTeam.Remove(meleeTeam[currentMelee]);
+                    spellcasterTeam.Remove(currentSpellcaster);
+
+                    if (spellcasterTeam.Count == 0)
+                    {
+                        currentMelee.WonBattle();
+                        Tools.ColorfullWrite("Spellcaster team wins!", ConsoleColor.Red);
+                        break;
+                    }
+                    else
+                    {
+                    currentSpellcaster = spellcasterTeam[rng.Next(0, spellcasterTeam.Count)];
+                    }
+
+                }
+
+                currentMelee.TakeDamage(currentSpellcaster.Attack(), currentSpellcaster.Name, currentSpellcaster.GetType().ToString());
+                if (!currentMelee.IsAlive)
+                {
+                    meleeTeam.Remove(currentMelee);
 
                     if (meleeTeam.Count == 0)
                     {
-                        spellcasterTeam[currentMelee].WonBattle();
+                        currentSpellcaster.WonBattle();
                         Console.WriteLine("Spellcaster team wins!");
                         break;
                     }
                     else
                     {
-                    currentMelee = rng.Next(0, meleeTeam.Count);
-                    }
-
-                }
-
-                // 4. Spellcaster attacks Melee.
-                spellcasterTeam[currentSpellcaster].TakeDamage(meleeTeam[currentMelee].Attack(), meleeTeam[currentMelee].Name);
-                // 4.1 Check character status and remove from team if needed.
-                // 4.2 If dead choose another character from the team.
-                if (!spellcasterTeam[currentSpellcaster].IsAlive)
-                {
-                    spellcasterTeam.Remove(spellcasterTeam[currentSpellcaster]);
-
-                    if (spellcasterTeam.Count == 0)
-                    {
-                        meleeTeam[currentMelee].WonBattle();
-                        Console.WriteLine("Melee team wins!");
-                        break;
-                    }
-                    else
-                    {
-                    currentSpellcaster = rng.Next(0, spellcasterTeam.Count);
+                    currentMelee = meleeTeam[rng.Next(0, meleeTeam.Count)];
                     }
                 }
-
-                // 5. If no characters are alive from either one of the teams gameOver = true
-
             }
         }
     }

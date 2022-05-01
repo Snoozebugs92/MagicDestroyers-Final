@@ -141,7 +141,7 @@ namespace MagicDestroyers.Characters
 
         public abstract int Defend();
 
-        public void TakeDamage(int damage, string attackerName)
+        public void TakeDamage(int damage, string attackerName, string type)
         {
             if (this.Defend() < damage)
             {
@@ -159,11 +159,11 @@ namespace MagicDestroyers.Characters
 
             if (!this.isAlive)
             {
-                Console.WriteLine($"{this.name} received {damage} damage from {attackerName}, and is now dead.");
+                Tools.TypeSpecificColorfullWrite($"{this.name} received {damage} damage from {attackerName}, and is now dead.", type);
             }
             else
             {
-                Console.WriteLine($"{this.name} received {damage} damage from {attackerName}, {this.name} has {this.healthPoints} healtpoints remaining.");
+                Tools.TypeSpecificColorfullWrite($"{this.name} received {damage} damage from {attackerName}, {this.name} has {this.healthPoints} healtpoints remaining.", type);
             }
         }
 

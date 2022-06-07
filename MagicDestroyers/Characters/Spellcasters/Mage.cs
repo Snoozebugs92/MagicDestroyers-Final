@@ -45,7 +45,7 @@ namespace MagicDestroyers.Characters.Spellcasters
 
         public int Meditation()
         {
-            return base.BodyArmor.ArmorPoints + 5;
+            return base.BodyArmor.ArmorPoints + 14;
         }
 
         public override int Attack()

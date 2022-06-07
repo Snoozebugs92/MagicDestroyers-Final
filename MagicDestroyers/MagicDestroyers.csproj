@@ -73,7 +73,6 @@
     <Compile Include="Equipment\Weapons\Sharp\Sharp.cs" />
     <Compile Include="Equipment\Weapons\Sharp\Sword.cs" />
     <Compile Include="Equipment\Weapons\Weapon.cs" />
-    <Compile Include="PlayersInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools.cs" />
   </ItemGroup>

@@ -35,7 +35,7 @@ namespace MagicDestroyers.Characters.Spellcasters
     
         public int Moonfire()
         {
-            return base.Weapon.DamagePoints + 10;
+            return base.Weapon.DamagePoints + 9;
         }
     
         public int Starburst()
@@ -45,7 +45,7 @@ namespace MagicDestroyers.Characters.Spellcasters
     
         public int OneWithTheNature()
         {
-            return base.Weapon.DamagePoints + 15;
+            return base.Weapon.DamagePoints + 4;
         }
     
         public override int Attack()

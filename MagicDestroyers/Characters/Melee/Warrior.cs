@@ -35,7 +35,7 @@ namespace MagicDestroyers.Characters.Melee
 
         public int Strike()
         {
-            return base.Weapon.DamagePoints + 10;
+            return base.Weapon.DamagePoints + 7;
         }
 
         public int Execute()
@@ -45,12 +45,12 @@ namespace MagicDestroyers.Characters.Melee
 
         public int SkinHarden()
         {
-            return base.BodyArmor.ArmorPoints + 5;
+            return base.BodyArmor.ArmorPoints + 6;
         }
 
         public override int Attack()
         {
-            return this.Strike();
+            return Strike();
         }
 
         public override int SpecialAttack()

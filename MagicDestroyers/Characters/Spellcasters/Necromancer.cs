@@ -45,7 +45,7 @@ public class Necromancer : Spellcaster
 
         public int BoneShield()
         {
-            return base.Weapon.DamagePoints + 12;
+            return base.Weapon.DamagePoints + 2;
         }
 
         public override int Attack()

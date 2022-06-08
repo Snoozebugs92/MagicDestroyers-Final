@@ -35,7 +35,7 @@ namespace MagicDestroyers.Characters.Melee
 
         public int Raze()
       {
-            return base.Weapon.DamagePoints + 6;
+            return base.Weapon.DamagePoints + 8;
         }
 
         public int BleedToDeath()
@@ -45,7 +45,7 @@ namespace MagicDestroyers.Characters.Melee
 
         public int Survival()
       {
-          return base.Weapon.DamagePoints + 13;
+          return base.Weapon.DamagePoints + 5;
       }
 
         public override int Attack()

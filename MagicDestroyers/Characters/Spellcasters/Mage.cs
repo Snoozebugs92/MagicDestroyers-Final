@@ -35,7 +35,7 @@ namespace MagicDestroyers.Characters.Spellcasters
 
         public int Fireball()
         {
-            return base.Weapon.DamagePoints + 10;
+            return base.Weapon.DamagePoints + 9;
         }
 
         public int ArcaneWrath()
@@ -45,7 +45,7 @@ namespace MagicDestroyers.Characters.Spellcasters
 
         public int Meditation()
         {
-            return base.BodyArmor.ArmorPoints + 14;
+            return base.BodyArmor.ArmorPoints + 4;
         }
 
         public override int Attack()

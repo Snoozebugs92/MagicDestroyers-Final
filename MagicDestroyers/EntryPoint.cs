@@ -61,7 +61,7 @@ namespace MagicDestroyers
                     if (spellcasterTeam.Count == 0)
                     {
                         currentMelee.WonBattle();
-                        Tools.ColorfullWrite("Spellcaster team wins!", ConsoleColor.Red);
+                        Tools.ColorfullWrite("Melee team wins!", ConsoleColor.Red);
                         break;
                     }
                     else
@@ -79,7 +79,7 @@ namespace MagicDestroyers
                     if (meleeTeam.Count == 0)
                     {
                         currentSpellcaster.WonBattle();
-                        Console.WriteLine("Spellcaster team wins!");
+                        Console.WriteLine("Spellcaster team wins!", ConsoleColor.Green);
                         break;
                     }
                     else

@@ -39,7 +39,7 @@
 
         public int HolyBlow()
         {
-                return base.Weapon.DamagePoints + 7;
+                return base.Weapon.DamagePoints + 9;
         }
 
         public int PurifySoul()
@@ -49,7 +49,7 @@
 
         public int RighteousWings()
         {
-                return base.Weapon.DamagePoints + 11;
+                return base.Weapon.DamagePoints + 4;
         }
 
         public override int Attack()
